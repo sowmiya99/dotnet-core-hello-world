@@ -1,26 +1,16 @@
-using System.IO;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-
-namespace HelloWeb
+// A Hello World! program in C#.
+using System;
+namespace HelloWorld
 {
-    public class Program
+    class Hello 
     {
-        public static void Main(string[] args)
+        static void Main() 
         {
+            Console.WriteLine("Hello World!");
 
-            var config = new ConfigurationBuilder()
-                          .AddCommandLine(args)
-                          .Build();
-            var host = new WebHostBuilder()
-                        .UseKestrel()
-                        .UseConfiguration(config)
-                        .UseContentRoot(Directory.GetCurrentDirectory())
-                        .UseIISIntegration()
-                        .UseStartup<Startup>()
-                        .Build();
-
-            host.Run();
+            // Keep the console window open in debug mode.
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
         }
     }
 }
